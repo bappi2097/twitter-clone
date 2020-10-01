@@ -52,4 +52,14 @@ class User extends Authenticatable
     {
         return asset("images/dummy/50-1.jpg");
     }
+
+    public function follow(User $user)
+    {
+        return $this->follows()->sync($user, false);
+    }
+
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
+    }
 }
