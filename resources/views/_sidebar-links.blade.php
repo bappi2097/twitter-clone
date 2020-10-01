@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a href="/" class="font-bold text-lg mb-4 block">Home</a>
+        <a href="{{route('home')}}" class="font-bold text-lg mb-4 block">Home</a>
     </li>
     <li>
         <a href="/explore" class="font-bold text-lg mb-4 block">Explore</a>
