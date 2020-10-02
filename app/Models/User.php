@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
     public function tweets()
     {
-        return $this->hasMany(Tweet::class);
+        return $this->hasMany(Tweet::class)->latest();
     }
     public function timeline()
     {
@@ -53,18 +53,8 @@ class User extends Authenticatable
     {
         return asset("images/dummy/200.jpg");
     }
-
-    public function follow(User $user)
+    public function path()
     {
-        return $this->follows()->sync($user, false);
-    }
-
-    public function follows()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id');
-    }
-    public function getROuteKeyName()
-    {
-        return 'name';
+        return route('profile', $this->name);
     }
 }
