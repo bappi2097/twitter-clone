@@ -51,7 +51,7 @@ class User extends Authenticatable
     }
     public function getAvatarAttribute()
     {
-        return asset("images/dummy/50-1.jpg");
+        return asset("images/dummy/200.jpg");
     }
 
     public function follow(User $user)
