@@ -21,6 +21,9 @@
         <a href="{{route('profile', auth()->user())}}" class="font-bold text-lg mb-4 block">Profile</a>
     </li>
     <li>
-        <a href="#" class="font-bold text-lg mb-4 block">More</a>
+        <form action="{{route('logout')}}" method="POST">
+            @csrf
+            <button class="font-bold text-lg">Logout</button>
+        </form>
     </li>
 </ul>

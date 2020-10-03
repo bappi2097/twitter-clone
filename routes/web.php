@@ -30,5 +30,5 @@ Route::middleware('auth')->group(function () {
     Route::get('profiles/{user:username}', [ProfilesController::class, 'show'])->name('profile');
     Route::get('profiles/{user:username}/edit', [ProfilesController::class, 'edit'])->name('edit')->middleware('can:edit,user');
     Route::patch('profiles/{user:username}', [ProfilesController::class, 'update'])->name('update')->middleware('can:edit,user');
-    Route::get('explore', [ExploreController::class, 'index']);
+    Route::get('explore', ExploreController::class);
 });

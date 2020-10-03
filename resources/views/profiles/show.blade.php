@@ -6,7 +6,7 @@
                 style="left: 50%;" width="150" src="{{$user->avatar}}" alt="">
         </div>
         <div class="flex justify-between items-center mb-6">
-            <div>
+            <div style="max-width: 270px;">
                 <h2 class="font-bold text-2xl mb-0">{{$user->name}}</h2>
                 <p class="text-sm">Joined {{$user->created_at->diffForHumans()}}</p>
             </div>
@@ -26,7 +26,5 @@
             necessitatibus nisi accusantium explicabo enim doloribus magnam incidunt, qui assumenda.</p>
     </header>
 
-    @include('_timeline',[
-    'tweets' => $user->tweets
-    ])
+    @include('_timeline')
 </x-app>
