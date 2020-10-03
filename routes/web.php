@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\TweetController;
@@ -25,8 +26,9 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('tweets', [TweetController::class, 'index'])->name('home');
     Route::post('tweets', [TweetController::class, 'store']);
-    Route::post('profiles/{user:username}/follow', [FollowsController::class, 'store']);
+    Route::post('profiles/{user:username}/follow', [FollowsController::class, 'store'])->name('follow');
     Route::get('profiles/{user:username}', [ProfilesController::class, 'show'])->name('profile');
     Route::get('profiles/{user:username}/edit', [ProfilesController::class, 'edit'])->name('edit')->middleware('can:edit,user');
-    Route::patch('profiles/{user:username}', [ProfilesController::class, 'update'])->name('update');
+    Route::patch('profiles/{user:username}', [ProfilesController::class, 'update'])->name('update')->middleware('can:edit,user');
+    Route::get('explore', [ExploreController::class, 'index']);
 });
