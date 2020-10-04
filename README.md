@@ -20,6 +20,8 @@ This is the repository for the "Laravel From Scratch" [final project](https://la
 8. Add support for mentions and notifications.
 9. Work on responsiveness.
 
+#
+
 <div align="center">
     <b>Show some ❤️ by giving a ⭐️ on this repo.</b><br>
     <b>Visit Me <a href="https://bappi2097.github.io/">Bappi Saha</a></b>
