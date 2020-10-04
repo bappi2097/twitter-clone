@@ -4,6 +4,7 @@ use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\TweetLikesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,8 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('tweets', [TweetController::class, 'index'])->name('home');
+    Route::post('tweets/{tweet}/like', [TweetLikesController::class, 'store']);
+    Route::delete('tweets/{tweet}/like', [TweetLikesController::class, 'destroy']);
     Route::post('tweets', [TweetController::class, 'store']);
     Route::post('profiles/{user:username}/follow', [FollowsController::class, 'store'])->name('follow');
     Route::get('profiles/{user:username}', [ProfilesController::class, 'show'])->name('profile');
